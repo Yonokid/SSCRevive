@@ -92,12 +92,12 @@ function overwriteFooterText() {
   var footer_pos = footer_elt.length >1 ? ((footer_elt.length==3)?footer_elt.length-2:footer_elt.length-1):0;
   var copyright_elt_len = copyright_elt.length;
   if(footer_elt.length != 0){
-    footer_elt[footer_pos].innerHTML='<iframe width="100%" style="border:none;text-align:center;" src="/olcweb/newfooter.html" ></iframe>'; 
+    footer_elt[footer_pos].innerHTML='<iframe width="100%" style="border:none;text-align:center;" src="/SSCRevive/olcweb/newfooter.html" ></iframe>'; 
   } else if(footerByID != undefined){
-    footerByID.innerHTML='<iframe width="100%" style="border:none;text-align:center;" src="/olcweb/newfooter.html" ></iframe>';
+    footerByID.innerHTML='<iframe width="100%" style="border:none;text-align:center;" src="/SSCRevive/olcweb/newfooter.html" ></iframe>';
   } else{
     if(copyright_elt_len==1){
-      copyright_elt[copyright_elt_len-1].innerHTML='<iframe width="100%" style="border:none;text-align:center;" src="/olcweb/newfooter.html" ></iframe>';
+      copyright_elt[copyright_elt_len-1].innerHTML='<iframe width="100%" style="border:none;text-align:center;" src="/SSCRevive/olcweb/newfooter.html" ></iframe>';
     } else {
       for(i=0;i<copyright_elt_len-1;i++) {
         copyright_elt[i].style.display = 'none';
@@ -105,9 +105,9 @@ function overwriteFooterText() {
       var copyStyle = window.getComputedStyle(copyright_elt[copyright_elt_len-1]),
       copyColor = copyStyle.getPropertyValue('color');
       if(copyColor === "rgb(255, 255, 255)") {
-        copyright_elt[copyright_elt_len-1].innerHTML='<iframe id="copy-frame" width="100%" style="border:none;text-align:center;" src="/olcweb/newfooter_whitefg.html"></iframe>';
+        copyright_elt[copyright_elt_len-1].innerHTML='<iframe id="copy-frame" width="100%" style="border:none;text-align:center;" src="/SSCRevive/olcweb/newfooter_whitefg.html"></iframe>';
       } else {
-        copyright_elt[copyright_elt_len-1].innerHTML='<iframe width="100%" style="border:none;text-align:center;" src="/olcweb/newfooter.html" ></iframe>';
+        copyright_elt[copyright_elt_len-1].innerHTML='<iframe width="100%" style="border:none;text-align:center;" src="/SSCRevive/olcweb/newfooter.html" ></iframe>';
       }
     }
   }
@@ -578,11 +578,11 @@ function printResults(QuestionObjArray) {
 		document.getElementById('res_desc').childNodes[0].childNodes[2].childNodes[0].innerHTML= "Out of " + (QuestionObjArray.length - 1)+" questions, you answered " +correctAnswerCount+
 		 " correctly with a final grade of "+ Math.round(pc_correct) + "%";
 	 	document.getElementById('res_desc').childNodes[0].childNodes[4].childNodes[1].innerHTML= correctAnswerCount   +  " correct ("+Math.round(pc_correct) +"%)";
-	 	document.getElementById('res_desc').childNodes[0].childNodes[4].childNodes[2].innerHTML= "<img src='/olcweb/styles/shared/bargraph.gif' height='14' width='"+pc_correct+"%'/>";
+	 	document.getElementById('res_desc').childNodes[0].childNodes[4].childNodes[2].innerHTML= "<img src='/SSCRevive/olcweb/styles/shared/bargraph.gif' height='14' width='"+pc_correct+"%'/>";
 	 	document.getElementById('res_desc').childNodes[0].childNodes[5].childNodes[1].innerHTML= inCorrectAnswerCount   +  " incorrect ("+Math.round(pc_incorrect) +"%)";
-	 	document.getElementById('res_desc').childNodes[0].childNodes[5].childNodes[2].innerHTML= "<img src='/olcweb/styles/shared/bargraph.gif' height='14' width='"+pc_incorrect+"%'/>";
+	 	document.getElementById('res_desc').childNodes[0].childNodes[5].childNodes[2].innerHTML= "<img src='/SSCRevive/olcweb/styles/shared/bargraph.gif' height='14' width='"+pc_incorrect+"%'/>";
 	 	document.getElementById('res_desc').childNodes[0].childNodes[6].childNodes[1].innerHTML= unansweredCount   +  " unanswered ("+Math.round(pc_unanswered) +"%)";
-	 	document.getElementById('res_desc').childNodes[0].childNodes[6].childNodes[2].innerHTML= "<img src='/olcweb/styles/shared/bargraph.gif' height='14' width='"+pc_unanswered+"%'/>";
+	 	document.getElementById('res_desc').childNodes[0].childNodes[6].childNodes[2].innerHTML= "<img src='/SSCRevive/olcweb/styles/shared/bargraph.gif' height='14' width='"+pc_unanswered+"%'/>";
 	 	
 	 	textMail += "Results Reporter"+"\n\n\n";
 	 	textMail += "================================================================"+"\n";	 	
@@ -711,7 +711,7 @@ function displayResults(Question, iter){
 		for(var i = 0; i < correctAnswer.length; i++ ){			
 			try{
 				if(choice != "UNANSWERED"){
-						document.getElementById(correctAnswer[i].answerId).innerHTML = "<img src='/olcweb/styles/v2_glencoe/images/correct.gif'/>";}
+						document.getElementById(correctAnswer[i].answerId).innerHTML = "<img src='/SSCRevive/olcweb/styles/v2_glencoe/images/correct.gif'/>";}
 					}
 			catch(err){
 				continue;
@@ -785,9 +785,9 @@ function gradeEssayQuiz(QuestionObjArray){
 	document.getElementById('your_results').style.display = 'block';
 	document.getElementById('res_desc').childNodes[0].childNodes[0].childNodes[0].innerHTML="<h1>Results Reporter</h1>";
 	document.getElementById('res_desc').childNodes[0].childNodes[4].childNodes[1].innerHTML= unAnswered+" unanswered ("+ Math.round(pc_unanswered) +"%)";
- 	document.getElementById('res_desc').childNodes[0].childNodes[4].childNodes[2].innerHTML= "<img src='/olcweb/styles/shared/bargraph.gif' height='14' width='"+pc_unanswered+"%'/>";
+ 	document.getElementById('res_desc').childNodes[0].childNodes[4].childNodes[2].innerHTML= "<img src='/SSCRevive/olcweb/styles/shared/bargraph.gif' height='14' width='"+pc_unanswered+"%'/>";
  	document.getElementById('res_desc').childNodes[0].childNodes[5].childNodes[1].innerHTML= answered + " ungraded (" + Math.round(pc_answered) + "%)";
- 	document.getElementById('res_desc').childNodes[0].childNodes[5].childNodes[2].innerHTML= "<img src='/olcweb/styles/shared/bargraph.gif' height='14' width= '"+pc_answered+"%' />";
+ 	document.getElementById('res_desc').childNodes[0].childNodes[5].childNodes[2].innerHTML= "<img src='/SSCRevive/olcweb/styles/shared/bargraph.gif' height='14' width= '"+pc_answered+"%' />";
 	
 	EssayQuizResultsText += "Results Reporter"+"\n\n";
 	EssayQuizResultsText += "================================================================"+"\n";	 	
